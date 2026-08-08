@@ -942,15 +942,16 @@ if __name__ == "__main__":
     log.info("🩸 HyakkimaruBot started successfully")
     app = build()
     
+    bot_token = os.environ.get("BOT_TOKEN", "")
     PORT = int(os.environ.get("PORT", 8443))
     RENDER_EXTERNAL_URL = os.environ.get("RENDER_EXTERNAL_URL")
 
-    if RENDER_EXTERNAL_URL:
+    if RENDER_EXTERNAL_URL and bot_token:
         app.run_webhook(
             listen="0.0.0.0",
             port=PORT,
-            url_path=TOKEN,
-            webhook_url=f"{RENDER_EXTERNAL_URL}/{TOKEN}",
+            url_path=bot_token,
+            webhook_url=f"{RENDER_EXTERNAL_URL}/{bot_token}",
             allowed_updates=Update.ALL_TYPES
         )
     else:
