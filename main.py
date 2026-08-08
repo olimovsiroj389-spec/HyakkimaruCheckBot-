@@ -935,7 +935,24 @@ def build():
     app.add_error_handler(error_handler)
     return app
 
+import os
+
 if __name__ == "__main__":
     init_db()
     log.info("🩸 HyakkimaruBot started successfully")
-    build().run_polling(allowed_updates=Update.ALL_TYPES)
+    app = build()
+    
+    PORT = int(os.environ.get("PORT", 8443))
+    RENDER_EXTERNAL_URL = os.environ.get("RENDER_EXTERNAL_URL")
+
+    if RENDER_EXTERNAL_URL:
+        app.run_webhook(
+            listen="0.0.0.0",
+            port=PORT,
+            url_path=TOKEN,
+            webhook_url=f"{RENDER_EXTERNAL_URL}/{TOKEN}",
+            allowed_updates=Update.ALL_TYPES
+        )
+    else:
+        app.run_polling(allowed_updates=Update.ALL_TYPES)
+
