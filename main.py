@@ -32,7 +32,7 @@ from telegram.ext import (
 # =========================================================
 # 1. CONFIG & ENVIRONMENT
 # =========================================================
-BOT_TOKEN = os.getenv("BOT_TOKEN", "8518958687:AAGitb97mgCN00yB24TDE5MPehklz6BlLHY")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8518958687:AAGP8DubN6cm8Nul9Bw-jWpFFe-_VLMdlVw")
 
 DATABASE_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
