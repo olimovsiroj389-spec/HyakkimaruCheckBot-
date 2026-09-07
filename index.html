@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0c0a12">
+  <title>Sorting Hat</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="stars"></div>
+  <main class="app">
+    <section id="intro" class="screen active">
+      <div class="crest">✦</div>
+      <div class="hat-wrap" aria-label="Sehrli shlyapa">🎩</div>
+      <p class="eyebrow">MAGIC SORTING</p>
+      <h1>Sorting Hat</h1>
+      <p class="lead">Savollarga o‘zingizga eng mos javobni tanlang. Shlyapa xarakteringizga mos fakultetni aniqlaydi.</p>
+      <button id="startBtn" class="primary">🎩 Testni boshlash</button>
+      <p class="tiny">Taxminan 2–3 daqiqa</p>
+    </section>
+
+    <section id="already" class="screen">
+      <div class="already-card">
+        <div class="already-seal">✓</div>
+        <p class="eyebrow">TEST YAKUNLANGAN</p>
+        <h1>Bu testni qaytadan<br>yechish mumkin emas</h1>
+        <p class="lead">Siz ushbu testda allaqachon qatnashgansiz. Avvalgi natijangiz saqlangan.</p>
+
+        <div class="old-result">
+          <div class="old-result-emoji" id="oldResultEmoji">🦁</div>
+          <div>
+            <p class="old-label">SIZNING NATIJANGIZ</p>
+            <h2 id="oldResultName">Gryffindor</h2>
+            <p id="oldResultTitle">Jasorat va qat’iyat</p>
+          </div>
+        </div>
+
+        <div class="score-box" id="oldScoreBox"></div>
+        <div id="oldSlytherinBox" class="old-group-box" style="display:none">
+          <div>
+            <strong>🐍 Slytherin guruhi</strong>
+            <span id="oldSlytherinText">Guruh havolasi bot orqali beriladi.</span>
+          </div>
+        </div>
+        <p class="already-note">Natijangiz o‘zgartirilmaydi va testni ikkinchi marta topshirish mumkin emas.</p>
+      </div>
+    </section>
+
+    <section id="quiz" class="screen">
+      <div class="topbar">
+        <span id="progressText">1 / 12</span>
+        <div class="progress"><div id="progressFill"></div></div>
+      </div>
+      <div class="question-card">
+        <p class="eyebrow">SHLYAPANING SAVOLI</p>
+        <h2 id="questionText"></h2>
+        <div id="options" class="options"></div>
+      </div>
+    </section>
+
+    <section id="thinking" class="screen">
+      <div class="hat-big">🎩</div>
+      <p class="eyebrow">SHLYAPA O‘YLAYAPTI...</p>
+      <h2>Hmm... Qiziq...</h2>
+      <div class="magic-line"><span></span></div>
+      <p class="lead">Javoblaringiz birma-bir tekshirilmoqda.</p>
+    </section>
+
+    <section id="result" class="screen">
+      <p class="eyebrow">SIZNING FAKULTETINGIZ</p>
+      <div id="resultEmoji" class="result-emoji">🦁</div>
+      <h1 id="resultName">Gryffindor</h1>
+      <h3 id="resultTitle">Jasorat va qat’iyat</h3>
+      <p id="resultText" class="lead"></p>
+      <div class="score-box" id="scoreBox"></div>
+      <button id="sendBtn" class="primary">✨ Natijani botga yuborish</button>
+      <button id="againBtn" class="secondary" style="display:none">↻ Qayta topshirish</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
